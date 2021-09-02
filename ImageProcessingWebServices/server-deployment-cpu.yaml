@@ -21,23 +21,15 @@ spec:
       - name: imgproc-server
         image: wangso/imgproc-server:gpu
         imagePullPolicy: Always
-        resources:
-          limits:
-            nvidia.com/gpu: 1 
-            memory: 16000Mi
-            cpu: 2
-          requests:
-            memory: 8000Mi
-            cpu: 2
         ports:
           - containerPort: 5000
         volumeMounts:
         - mountPath: /ImageProcessingWebServices/output/server
-          name: yourvolume
+          name: myvolume
       volumes:
-      - name: yourvolume
+      - name: myvolume
         persistentVolumeClaim:
-          claimName: mizzoucerivolume          
+          claimName: my-volume-claim          
       restartPolicy: Always
 ---
 apiVersion: v1
@@ -45,7 +37,7 @@ kind: Service
 metadata:
   name: server-service
 spec:
-  type: ClusterIP
+  type: LoadBalancer
   selector:
     app: imageProcessing
     tier: server
@@ -54,25 +46,6 @@ spec:
     port: 5000
     targetPort: 5000
     protocol: TCP
----
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  annotations:
-    kubernetes.io/ingress.class: traefik
-    traefik.ingress.kubernetes.io/router.tls: ""
-  name: server-ingress
-spec:
-  rules:
-  - host: wangso-server.nautilus.optiputer.net
-    http:
-      paths:
-      - backend:
-          serviceName: server-service
-          servicePort: 5000
-        path: /
-
-
 
 
 

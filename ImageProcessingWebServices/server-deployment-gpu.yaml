@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: image-processing
+  labels: 
+    app: imageProcessing
+    tier: server
+spec:
+  replicas: 1
+  selector:
+    matchLabels: 
+      app: imageProcessing
+      tier: server
+  template:
+    metadata:
+      labels:
+        app: imageProcessing
+        tier: server
+    spec:
+      containers:
+      - name: imgproc-server
+        image: wangso/imgproc-server:gpu
+        imagePullPolicy: Always
+        ports:
+          - containerPort: 5000
+        volumeMounts:
+        - mountPath: /ImageProcessingWebServices/output/server
+          name: myvolume
+      volumes:
+      - name: myvolume
+        persistentVolumeClaim:
+          claimName: my-volume-claim          
+      restartPolicy: Always
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: server-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: imageProcessing
+    tier: server
+  ports:
+  - name: http
+    port: 5000
+    targetPort: 5000
+    protocol: TCP
+
+
+
+
+
+
+
+
+
+

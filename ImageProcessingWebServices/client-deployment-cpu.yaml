@@ -20,21 +20,14 @@ spec:
               imagePullPolicy: Always
               env:
                 - name: server
-                  value: wangso-server.nautilus.optiputer.net	
-              resources:
-                limits:
-                  memory: 2000Mi
-                  cpu: 2
-                requests:
-                  memory: 1000Mi
-                  cpu: 1
+                  value: "Your_Server_IP:port"	
               volumeMounts:
               - mountPath: /ImageProcessingWebServices/output/client
-                name: yourvolume
+                name: myvolume
             volumes:
-            - name: yourvolume
+            - name: myvolume
               persistentVolumeClaim:
-                claimName: mizzoucerivolume  
+                claimName: my-volume-claim  
             restartPolicy: Always
 
       
