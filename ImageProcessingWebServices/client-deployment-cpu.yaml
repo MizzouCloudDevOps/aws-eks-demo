@@ -21,13 +21,13 @@ spec:
               env:
                 - name: server
                   value: "Your_Server_IP:port"	
-              volumeMounts:
-              - mountPath: /ImageProcessingWebServices/output/client
-                name: myvolume
-            volumes:
-            - name: myvolume
-              persistentVolumeClaim:
-                claimName: my-volume-claim  
+            #   volumeMounts:
+            #   - mountPath: /ImageProcessingWebServices/output/client
+            #     name: myvolume
+            # volumes:
+            # - name: myvolume
+            #   persistentVolumeClaim:
+            #     claimName: my-volume-claim  
             restartPolicy: Always
 
       
