@@ -10,12 +10,7 @@ metadata:
 availabilityZones: ["us-west-2a", "us-west-2b", "us-west-2c"]
 
 managedNodeGroups:
-  - name: nodegroup
+  - name: cpu-pool
     desiredCapacity: 3
     instanceType: t3.small
-  - name: gpu-pool
-    desiredCapacity: 1 
-    instanceType: p3.2xlarge
-    volumeSize: 20
-    labels:
-      accelerator: 'nvidia' 
+
