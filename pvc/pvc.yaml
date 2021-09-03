@@ -4,8 +4,7 @@ metadata:
   name: my-volume-claim
 spec:
   storageClassName: mysql-gp2
-  accessModes:
-  - ReadWriteMany
+  accessModes: ["ReadWriteOnce"]
   resources:
     requests:
       storage: 1000Mi
