@@ -13,6 +13,6 @@ nodeGroups:
   - name: gpu-pool
     desiredCapacity: 1 
     instanceType: p3.2xlarge
-    volumeSize: 20
+    volumeSize: 50
     labels:
       accelerator: 'nvidia' 

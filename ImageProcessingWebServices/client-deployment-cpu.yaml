@@ -21,13 +21,13 @@ spec:
               env:
                 - name: server
                   value: "a6b9ccf076ab84a8681c3b48157913c6-1312994032.us-west-2.elb.amazonaws.com:5000"	
-            #   volumeMounts:
-            #   - mountPath: /ImageProcessingWebServices/output/client
-            #     name: myvolume
-            # volumes:
-            # - name: myvolume
-            #   persistentVolumeClaim:
-            #     claimName: my-volume-claim  
+              volumeMounts:
+              - mountPath: /ImageProcessingWebServices/output/client
+                name: myvolume
+            volumes:
+            - name: myvolume
+              persistentVolumeClaim:
+                claimName: my-volume-claim  
             restartPolicy: Always
 
       

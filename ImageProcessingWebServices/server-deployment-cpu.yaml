@@ -23,13 +23,13 @@ spec:
         imagePullPolicy: Always
         ports:
           - containerPort: 5000
-      #   volumeMounts:
-      #   - mountPath: /ImageProcessingWebServices/output/server
-      #     name: myvolume
-      # volumes:
-      # - name: myvolume
-      #   persistentVolumeClaim:
-      #     claimName: my-volume-claim          
+        volumeMounts:
+        - mountPath: /ImageProcessingWebServices/output/server
+          name: myvolume
+      volumes:
+      - name: myvolume
+        persistentVolumeClaim:
+          claimName: my-volume-claim          
       restartPolicy: Always
 ---
 apiVersion: v1
