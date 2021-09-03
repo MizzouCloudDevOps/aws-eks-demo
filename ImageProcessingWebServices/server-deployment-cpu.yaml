@@ -29,7 +29,7 @@ spec:
       volumes:
       - name: myvolume
         persistentVolumeClaim:
-          claimName: my-volume-claim          
+          claimName: server-volume-claim          
       restartPolicy: Always
 ---
 apiVersion: v1

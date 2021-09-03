@@ -27,7 +27,7 @@ spec:
             volumes:
             - name: myvolume
               persistentVolumeClaim:
-                claimName: my-volume-claim  
+                claimName: client-volume-claim  
             restartPolicy: Always
 
       
