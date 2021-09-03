@@ -8,4 +8,4 @@ spec:
   resources:
     requests:
       storage: 1000Mi
-    name: client-PVC-storage  
+  volumeName: client-PVC-storage  
