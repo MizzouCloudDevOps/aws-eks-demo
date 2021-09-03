@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: my-volume-claim
 spec:
-  storageClassName: mysql-gp2
+  storageClassName: my-gp2
   accessModes: ["ReadWriteOnce"]
   resources:
     requests:
