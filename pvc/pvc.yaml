@@ -3,9 +3,9 @@ kind: PersistentVolumeClaim
 metadata:
   name: my-volume-claim
 spec:
-  storageClassName: rook-cephfs-east
+  storageClassName: mysql-gp2
   accessModes:
   - ReadWriteMany
   resources:
     requests:
-      storage: 200Mi
+      storage: 1000Mi
