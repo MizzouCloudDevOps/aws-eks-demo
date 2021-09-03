@@ -13,4 +13,5 @@ managedNodeGroups:
   - name: cpu-pool
     desiredCapacity: 3
     instanceType: t3.small
+    volumeSize: 20
 
