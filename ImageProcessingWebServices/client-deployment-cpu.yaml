@@ -20,14 +20,14 @@ spec:
               imagePullPolicy: Always
               env:
                 - name: server
-                  value: "af2e535fdc93c46b493e7da13f18fb89-689403168.us-west-2.elb.amazonaws.com:5000"	
+                  value: "Your_Server_IP:port"	
               volumeMounts:
               - mountPath: /ImageProcessingWebServices/output/client
                 name: myvolume
             volumes:
             - name: myvolume
               persistentVolumeClaim:
-                claimName: client-volume-claim 
+                claimName: my-volume-claim
             restartPolicy: Always
 
       
