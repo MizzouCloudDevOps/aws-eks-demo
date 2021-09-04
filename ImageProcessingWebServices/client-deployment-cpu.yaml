@@ -20,7 +20,7 @@ spec:
               imagePullPolicy: Always
               env:
                 - name: server
-                  value: "Your_Server_IP:port"	
+                  value: "Your_Server_IP:5000"	
               volumeMounts:
               - mountPath: /ImageProcessingWebServices/output/client
                 name: myvolume
